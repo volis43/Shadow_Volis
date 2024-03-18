@@ -51,11 +51,12 @@ LRESULT CALLBACK SoftwareMainProcedure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp
         case OnMenuAction3:
             MessageBoxA(hWnd, "Menu click", "Menu startet", MB_OK);
             break;
+        case OnButtonClicked1:
+            MessageBoxA(hWnd,"Set result", "Shadow Volis", MB_OK);
+            break;
         case OnExitMenu:
             PostQuitMessage(0);
             break;
-        case OnButtonClicked1:
-            MessageBoxA(hWnd,"Set result", "Shadow Volis", MB_OK);
         default: break;
         }
         break;
@@ -79,21 +80,22 @@ void MainWndAddMenus(HWND hWnd)
     AppendMenu(RootMenu, MF_STRING, OnMenuAction1, L"Shadow Menu 1");
     AppendMenu(SubMenu, MF_STRING, OnMenuAction2, L"Shadow Menu 2");
     AppendMenu(SubMenu, MF_STRING, OnMenuAction3, L"Shadow Menu 3");
-    AppendMenu(RootMenu, MF_SEPARATOR, NULL, NULL);
-    AppendMenu(RootMenu, MF_STRING, OnExitMenu, L"Exit");
+    
+    /*AppendMenu(RootMenu, MF_SEPARATOR, NULL, NULL);*/
 
     AppendMenu(RootMenu, MF_POPUP, (UINT_PTR)SubMenu, L"Saving");
     
+    AppendMenu(RootMenu, MF_STRING, OnExitMenu, L"Exit");
 
     SetMenu(hWnd, RootMenu);
 }
 
 void MainWndAddWidget(HWND hWnd)
 {
-    CreateWindowA("static", "Hello Shadow-Volis", WS_VISIBLE | WS_CHILD | ES_CENTER, 5, 5, 490, 20, hWnd, NULL, NULL, NULL);
+    CreateWindowA("static", "Shadow-Volis", WS_VISIBLE | WS_CHILD | ES_CENTER, 5, 5, 490, 20, hWnd, NULL, NULL, NULL);
 
     CreateWindowA("edit", "c++", WS_VISIBLE | WS_CHILD, 5, 30, 450, 20, hWnd, NULL, NULL, NULL);
 
     CreateWindowA("button", "Save result", WS_VISIBLE | WS_CHILD | ES_CENTER, 5, 60, 120, 20, hWnd, (HMENU)OnButtonClicked1, NULL, NULL, NULL);
-    CreateWindowA("button", "Save result", WS_VISIBLE | WS_CHILD | ES_CENTER, 5, 60, 120, 20, hWnd, (HMENU)OnButtonClicked1, NULL, NULL, NULL);
+    
 }
