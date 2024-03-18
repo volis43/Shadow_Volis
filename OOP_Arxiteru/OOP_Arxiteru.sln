@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOP_Arxiteru", "OOP_Arxiteru\OOP_Arxiteru.vcxproj", "{BA43C4B2-4C63-4317-BA09-171CF5780AC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Debug|x64.ActiveCfg = Debug|x64
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Debug|x64.Build.0 = Debug|x64
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Debug|x86.ActiveCfg = Debug|Win32
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Debug|x86.Build.0 = Debug|Win32
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Release|x64.ActiveCfg = Release|x64
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Release|x64.Build.0 = Release|x64
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Release|x86.ActiveCfg = Release|Win32
+		{BA43C4B2-4C63-4317-BA09-171CF5780AC3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB0CC5BB-1602-48B9-B975-D6B36F94B6C3}
+	EndGlobalSection
+EndGlobal
