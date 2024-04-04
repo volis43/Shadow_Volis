@@ -1,17 +1,21 @@
 #include <iostream>
+#include <string>
 #define FILL_FACTOR 75
 
-typedef struct
+
+
+typedef struct Item
 {
 	std::string key;
-	int value;
-} Item;
+	int value = 0;
+}Item;
 
-typedef struct
+
+typedef struct Hashmap
 {
-	Item* elements;
+	Item* elements = 0;
 	int capacity = 32;
-	int cout;
+	int cout = 0;
 
 	long hash(std::string key)
 	{
@@ -26,16 +30,16 @@ typedef struct
 
 	void realloc()
 	{
-		if (this->cout / this->capacity * 100 >= FILL_FACTOR)
+		if (this->cout * 100 / this->capacity >= FILL_FACTOR)
 		{
-			this->elements = (Item*)std::realloc(NULL, this->capacity * 2);
+			this->elements = (Item*)std::realloc(this->elements, this->capacity * 2 * sizeof(Item));
 			this->capacity *= 2;
 		}
 	}
 
 	void init()
 	{
-		this->elements = (Item*)malloc(this->capacity * sizeof(Item));
+		this->elements = (Item*)std::malloc(this->capacity * sizeof(Item));
 	}
 
 	void add(std::string key, int value)
@@ -44,10 +48,10 @@ typedef struct
 		long hashed = hash(key);
 		if (this->elements[hashed].key != "")
 		{
-			long temp = hashed + 1;
+			long temp = (hashed + 1) % this->capacity;
 			while (this->elements[temp].key != "")
 			{
-				temp++;
+				temp = (temp + 1) % this->capacity;
 			}
 			this->elements[temp].key = key;
 			this->elements[temp].value = value;
@@ -69,24 +73,29 @@ typedef struct
 		}
 		else
 		{
-			for (int i = hashed +1; i < hashed + this->capacity; ++i)
+			for (int i = 1; i < this->capacity; ++i)
 			{
-				if (i == hashed) break;
-				if (this->elements[i].key == key) return this->elements[i].value;
+				int index = (hashed + 1) % this->capacity;
+				if (this->elements[index].key == key) return this->elements[index].value;
 			}
 			return -1;
 		}
+		
+~Hashmap()
+		{
+
+		}
 	}
 
-} Hashmap;
+}Hashmap;
 
 int main() 
 {
 	Hashmap hashmap;
 	hashmap.init();
 	hashmap.add("ten", 10);
-	hashmap.add("elevem", 11);
-	hashmap.add("lol", 32);
+	/*hashmap.add("elevem", 11);*/
+	hashmap.add("lol", 3);
 	hashmap.add("pikachu", 1);
 	std::cout << hashmap.get("pikachu");
 }
