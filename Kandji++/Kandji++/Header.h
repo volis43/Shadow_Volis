@@ -12,10 +12,6 @@ int Xnamber = 0;
 int* px = &Xnamber;
 
 
-
-
-
-
 enum ColorInConsole
 {
 	Red = 4,

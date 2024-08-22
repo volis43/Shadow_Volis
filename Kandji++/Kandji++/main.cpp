@@ -25,13 +25,12 @@ int main()
 	std::string answer = "";
 	std::string GetNumber[] = {"fels"};
 	
-	*px = 7;
+	int ElementOfArray = sizeof(mass) / sizeof(mass[0]);
+	
+	*px = ElementOfArray;
+
 	std::cout << " Masic X" << std::endl;
 	
-	for (std::string g : mass)
-	{
-		std::cout << g << std::endl;
-	}
 
 	std::string* Value = new std::string[*px];
 
@@ -57,7 +56,7 @@ int main()
 		std::cout << Fifr[i] << " = " << Value[i] << std::endl;
 	}
 
-	std::cout << sizeof(mass) << std::endl;
+	std::cout << sizeof(mass) / sizeof(mass[0]) << std::endl;
 
 	Picture.loadFromFile(customString);
 
